@@ -1,0 +1,41 @@
+
+name: Publish to npm (Trusted Publishing)
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write  # required for OIDC with npm trusted publishing
+
+jobs:
+  publish:
+    name: Publish (OIDC)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: node build.js
+
+      - name: Publish to npm (OIDC)
+        run: pnpm publish --provenance --access public --no-git-checks
