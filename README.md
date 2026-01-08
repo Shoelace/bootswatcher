@@ -1,7 +1,12 @@
 
-# BootSwatcher (TypeScript) – v5
+# BootSwatcher
 
-Offline-ready Bootswatch theme switcher Web Component with dark mode, compact/invisible options, Vite dev environment, and **Windows-friendly build script**.
+Bootswatch theme switcher Web Component
+with
+- dark mode
+- compact/invisible options
+- Vite dev environment
+- Offline-ready 
 
 ## Features
 - ✅ Runtime theme switching among **all Bootswatch v5 themes** plus **default Bootstrap**
@@ -12,7 +17,7 @@ Offline-ready Bootswatch theme switcher Web Component with dark mode, compact/in
 - ✅ **Automatic link insertion** if missing (`insert-link` attribute)
 - ✅ Local copies of Bootswatch CSS and Bootstrap assets (JS & CSS)
 - ✅ TypeScript source → **ESM** & **IIFE** bundles + **types**
-- ✅ Node.js build script (`build.js`) updated to **work on Windows** (detects package manager, avoids shebang reliance)
+- ✅ Node.js build script (`build.js`)
 - ✅ Optional `setup-webpack.js` to scaffold a minimal webpack config
 - ✅ **Vite** dev environment (`vite.config.ts`) with `pnpm dev`
 - ✅ ESLint/Prettier setup for TypeScript & Web Components
@@ -32,7 +37,12 @@ pnpm dlx serve dist
 ---
 
 ## Usage (component)
+### simple
+```html
+<boot-swatcher/>
+```
 
+### advanced
 ```html
 <boot-swatcher
   themes-url="./themes/themes.json"
@@ -67,7 +77,7 @@ pnpm dlx serve dist
 
 ## Windows-friendly build script
 - Detects available package manager (`pnpm` → `npm` → `yarn`) and uses the right commands.
-- Uses `node build.js` (no reliance on shebang) and cross-platform Node APIs.
+- Uses `node build.js` 
 
 ---
 

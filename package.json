@@ -1,7 +1,7 @@
 {
   "name": "bootswatcher",
   "version": "1.0.0",
-  "description": "Offline-ready Bootswatch theme switcher Web Component (TypeScript) with Windows-friendly build.",
+  "description": "Bootswatch theme switcher Web Component",
   "type": "module",
   "main": "dist/BootSwatcher.mjs",
   "module": "dist/BootSwatcher.mjs",
@@ -44,12 +44,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourname/bootswatcher.git"
+    "url": "git+https://github.com/Shoelace/bootswatcher.git"
   },
   "bugs": {
-    "url": "https://github.com/yourname/bootswatcher/issues"
+    "url": "https://github.com/Shoelace/bootswatcher/issues"
   },
-  "homepage": "https://github.com/yourname/bootswatcher#readme",
+  "homepage": "https://github.com/Shoelace/bootswatcher#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.52.0",
     "@typescript-eslint/parser": "^8.52.0",
