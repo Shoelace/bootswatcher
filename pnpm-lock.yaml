@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       bootstrap:
-        specifier: '5'
+        specifier: 5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
       bootswatch:
-        specifier: '5'
+        specifier: 5.3.8
         version: 5.3.8
     devDependencies:
       '@typescript-eslint/eslint-plugin':
