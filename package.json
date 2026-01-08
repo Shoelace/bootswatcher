@@ -1,0 +1,71 @@
+{
+  "name": "bootswatcher",
+  "version": "1.0.0",
+  "description": "Offline-ready Bootswatch theme switcher Web Component (TypeScript) with Windows-friendly build.",
+  "type": "module",
+  "main": "dist/BootSwatcher.mjs",
+  "module": "dist/BootSwatcher.mjs",
+  "browser": "dist/BootSwatcher.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/types/BootSwatcher.d.ts",
+      "import": "./dist/BootSwatcher.mjs",
+      "default": "./dist/BootSwatcher.mjs"
+    }
+  },
+  "files": [
+    "dist/BootSwatcher.mjs",
+    "dist/bootswatcher.iife.js",
+    "dist/types/BootSwatcher.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "build": "node build.js",
+    "setup:webpack": "node setup-webpack.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "bootswatch",
+    "bootstrap",
+    "web components",
+    "theme",
+    "switcher",
+    "dark mode",
+    "typescript",
+    "offline",
+    "vite"
+  ],
+  "author": "David Pyke <Shoelace@users.noreply.github.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourname/bootswatcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourname/bootswatcher/issues"
+  },
+  "homepage": "https://github.com/yourname/bootswatcher#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.52.0",
+    "@typescript-eslint/parser": "^8.52.0",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-html": "^8.1.3",
+    "eslint-plugin-wc": "^3.0.2",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bootstrap": "5",
+    "bootswatch": "5"
+  }
+}

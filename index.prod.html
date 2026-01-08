@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BootSwatcher Demo (Production)</title>
+    <script>
+      (function () {
+        var THEME_KEY = 'bootswatcher:theme';
+        var MODE_KEY = 'bootswatcher:mode';
+        var theme = null; var mode = null;
+        try { theme = localStorage.getItem(THEME_KEY); } catch (e) {}
+        try { mode  = localStorage.getItem(MODE_KEY); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedMode = mode || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', resolvedMode);
+        var link = document.getElementById('bootswatch-theme');
+        if (!link) { link = document.createElement('link'); link.id = 'bootswatch-theme'; link.rel = 'stylesheet'; document.head.appendChild(link); }
+        link.href = theme && theme !== 'bootstrap' ? 'themes/' + theme + '/bootstrap.min.css' : 'themes/bootstrap.min.css';
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1 class="h3">BootSwatcher Demo (Production)</h1>
+      <boot-swatcher show-label show-mode-toggle compact insert-link></boot-swatcher>
+    </main>
+
+    <script type="module" src="./BootSwatcher.mjs"></script>
+    <script src="./vendor/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

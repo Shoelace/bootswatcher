@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BootSwatcher Demo (Vite Dev)</title>
+    <script>
+      (function () {
+        var THEME_KEY = 'bootswatcher:theme';
+        var MODE_KEY = 'bootswatcher:mode';
+        var theme = null; var mode = null;
+        try { theme = localStorage.getItem(THEME_KEY); } catch (e) {}
+        try { mode  = localStorage.getItem(MODE_KEY); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedMode = mode || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-bs-theme', resolvedMode);
+        var link = document.getElementById('bootswatch-theme');
+        if (!link) { link = document.createElement('link'); link.id = 'bootswatch-theme'; link.rel = 'stylesheet'; document.head.appendChild(link); }
+        link.href = theme && theme !== 'bootstrap' ? 'themes/' + theme + '/bootstrap.min.css' : 'themes/bootstrap.min.css';
+      })();
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BootSwatcher</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+          </ul>
+          <div class="d-flex" role="search">
+            <boot-swatcher id="sw-default" show-label show-mode-toggle insert-link></boot-swatcher>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      <h1 class="h3">BootSwatcher Demo (TypeScript + Vite)</h1>
+      <p class="lead">Switch themes and toggle dark mode. Compact & invisible variants below.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-header">Compact UI</div>
+            <div class="card-body">
+              <boot-swatcher id="sw-compact" show-label show-mode-toggle compact insert-link></boot-swatcher>
+              <p class="mt-2 small text-muted">Compact reduces spacing and hides labels visually.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-header">Invisible UI</div>
+            <div class="card-body">
+              <boot-swatcher id="sw-invisible" invisible default-theme="flatly" default-mode="dark" insert-link></boot-swatcher>
+              <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Programmatic set">
+                <button class="btn btn-outline-secondary" id="btn-inv-darkly">Set Darkly</button>
+                <button class="btn btn-outline-secondary" id="btn-inv-bootstrap">Set Bootstrap</button>
+                <button class="btn btn-outline-secondary" id="btn-inv-light">Light mode</button>
+                <button class="btn btn-outline-secondary" id="btn-inv-dark">Dark mode</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/BootSwatcher.ts"></script>
+    <script src="./vendor/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const inv = document.getElementById('sw-invisible');
+      document.getElementById('btn-inv-darkly')?.addEventListener('click', function(){ inv.setTheme('darkly'); });
+      document.getElementById('btn-inv-bootstrap')?.addEventListener('click', function(){ inv.setTheme('bootstrap'); });
+      document.getElementById('btn-inv-light')?.addEventListener('click', function(){ inv.setMode('light'); });
+      document.getElementById('btn-inv-dark')?.addEventListener('click', function(){ inv.setMode('dark'); });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+
+.github/
+src/
+themes/
+vendor/
+dist/
+setup-webpack.js
+build.js
+index.html
+index.prod.html
+vite.config.ts
+.eslintrc.json
+.prettierrc
+.editorconfig

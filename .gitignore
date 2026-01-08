@@ -1,0 +1,15 @@
+
+# Node
+node_modules/
+
+# Build outputs
+.dist/
+dist/
+vendor/
+.DS_Store
+coverage/
+*.log
+
+# Editors
+.vscode/
+.idea/
